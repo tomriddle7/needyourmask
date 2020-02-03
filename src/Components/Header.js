@@ -43,5 +43,6 @@ export default withRouter(({ location: { pathname } }) => (
         <SLink to="/">Home</SLink>
       </Item>
     </List>
+    <a href="https://github.com/tomriddle7/needyourmask">개발자 페이지</a>
   </Header>
 ));
