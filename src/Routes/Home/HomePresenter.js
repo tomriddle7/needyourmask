@@ -14,15 +14,26 @@ const HomePresenter = ({ shopData, error, loading }) => {
     <Loader />
   ) : (
     <Container>
-      {shopData.map(shop => (
-            <Item
-              url={shop.link}
-              img={shop.image}
-              product={shop.title}
-              seller={shop.mallName}
-              price={shop.lprice}
-            />
-        ))}
+      {shopNaverData.map(shop => (
+        <Item
+          key={shop.id}
+          url={shop.url}
+          img={shop.img}
+          product={shop.product}
+          seller={shop.seller}
+          price={shop.price}
+        />
+      ))}
+      {shopElevenData.map(shop => (
+        <Item
+          key={shop.ProductCode[0]}
+          url={shop.DetailPageUrl[0]}
+          img={shop.ProductImage200[0]}
+          product={shop.ProductName[0]}
+          seller={shop.SellerNick[0]}
+          price={shop.ProductPrice[0]}
+        />
+      ))}
     </Container>
   );
 };

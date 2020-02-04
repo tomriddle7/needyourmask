@@ -51,10 +51,11 @@ const Item = ({ url, img, product, seller, price }) => (
 );
 
 Item.propTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  artistName: PropTypes.string.isRequired,
-  artworkUrl100: PropTypes.number.isRequired
+  url: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
+  product: PropTypes.string.isRequired,
+  seller: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired
 };
 
 export default Item;
