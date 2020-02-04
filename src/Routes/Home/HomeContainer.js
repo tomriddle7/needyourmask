@@ -8,9 +8,21 @@ export default class extends React.Component {
     shopElevenData: null,
     shopNaverData: null,
     shopData: null,
+    minPrice: 0,
+    maxPrice: 100000,
     error: null,
     loading: true
   };
+  handleChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState(prevstate => {
+      const newState = { ...prevstate };
+      newState[name] = value;
+      return newState;
+    });
+  };
+  handleSubmit = event => {};
   componentDidMount() {
     this.getElevenShop();
   }
@@ -44,7 +56,6 @@ export default class extends React.Component {
         error: "Can't find app information."
       });
     } finally {
-      console.log(this.state);
       this.getNaverShop();
     }
   };
@@ -82,6 +93,27 @@ export default class extends React.Component {
     }
   };
   render() {
-    return <HomePresenter {...this.state} />;
+    const {
+      shopElevenData,
+      shopNaverData,
+      shopData,
+      minPrice,
+      maxPrice,
+      loading,
+      error
+    } = this.state;
+    return (
+      <HomePresenter
+        shopElevenData={shopElevenData}
+        shopNaverData={shopNaverData}
+        shopData={shopData}
+        minPrice={minPrice}
+        maxPrice={maxPrice}
+        loading={loading}
+        error={error}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+      />
+    );
   }
 }
