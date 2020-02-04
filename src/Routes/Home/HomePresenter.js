@@ -9,7 +9,7 @@ const Container = styled.div`
   padding: 80px 0px;
 `;
 
-const HomePresenter = ({ shopData, error, loading }) => {
+const HomePresenter = ({ shopElevenData, shopNaverData, error, loading }) => {
   return loading ? (
     <Loader />
   ) : (
