@@ -9,10 +9,6 @@ const Container = styled.div`
   padding: 80px 0px;
 `;
 
-const Loader = styled.div`
-  padding: 80px 0px;
-`;
-
 const Label = styled.label``;
 
 const Form = styled.form``;
