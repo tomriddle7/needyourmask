@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = styled.header`
   color: white;
@@ -11,7 +13,7 @@ const Header = styled.header`
   height: 50px;
   display: flex;
   align-items: center;
-  background-color: rgba(20, 20, 20);
+  background-color: #221176;
   z-index: 10;
   box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
 `;
@@ -21,12 +23,9 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  width: 25vw;
+  width: 100vw;
   height: 50px;
   text-align: center;
-  border-bottom: 3px solid
-    ${props => (props.current ? "#0b84fe" : "transparent")};
-  transition: border-bottom 0.5s ease-in-out;
 `;
 
 const SLink = styled(Link)`
@@ -36,13 +35,21 @@ const SLink = styled(Link)`
   justify-content: center;
 `;
 
+const Developer = styled.a`
+  position: absolute;
+  right: 20px;
+`;
+
 export default withRouter(({ location: { pathname } }) => (
   <Header>
     <List>
       <Item current={pathname === "/"}>
-        <SLink to="/">Home</SLink>
+        <SLink to="/">Need Your Mask</SLink>
       </Item>
     </List>
-    <a href="https://github.com/tomriddle7/needyourmask">개발자 페이지</a>
+    
+    <Developer href="https://github.com/tomriddle7/needyourmask" target="_blank">
+      <FontAwesomeIcon icon={faGithub} size="2x"/>
+    </Developer>
   </Header>
 ));

@@ -6,12 +6,21 @@ import Loader from "../../Components/Loader";
 import Item from "../../Components/Item";
 
 const Container = styled.div`
-  padding: 80px 0px;
+  padding: 20px;
+`;
+
+const Section = styled.div`
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-gap: 20px;
 `;
 
 const Label = styled.label``;
 
-const Form = styled.form``;
+const Form = styled.form`
+  margin-top: 70px;
+`;
 
 const Input = styled.input``;
 
@@ -23,7 +32,6 @@ const HomePresenter = ({
   minPrice,
   maxPrice,
   handleChange,
-  handleSubmit,
   error,
   loading
 }) => {
@@ -31,7 +39,10 @@ const HomePresenter = ({
     <Loader />
   ) : (
     <Container>
-      <Form onSubmit={handleSubmit}>
+      <Helmet>
+        <title></title>
+      </Helmet>
+      <Form>
         <Label htmlFor="minPrice">minPrice</Label>
         <Input
           type="number"
@@ -50,23 +61,23 @@ const HomePresenter = ({
           onChange={handleChange}
           required
         />
-        <Submit type="submit" value="Submit" />
       </Form>
-      {shopNaverData.map(shop =>
-        Number(shop.price) >= minPrice && Number(shop.price) <= maxPrice ? (
-          <Item
-            key={shop.id}
-            url={shop.url}
-            img={shop.img}
-            product={shop.product}
-            seller={shop.seller}
-            price={shop.price}
-          />
-        ) : (
-          <></>
-        )
-      )}
-      {shopElevenData.map(shop =>
+      <Section>
+        {shopNaverData.map(shop =>
+          Number(shop.price) >= minPrice && Number(shop.price) <= maxPrice ? (
+            <Item
+              key={shop.id}
+              url={shop.url}
+              img={shop.img}
+              product={shop.product}
+              seller={shop.seller}
+              price={shop.price}
+            />
+          ) : (
+            <></>
+          )
+        )}
+        {shopElevenData.map(shop =>
         Number(shop.ProductPrice[0]) >= minPrice &&
         Number(shop.ProductPrice[0]) <= maxPrice ? (
           <Item
@@ -81,6 +92,7 @@ const HomePresenter = ({
           <></>
         )
       )}
+      </Section>
     </Container>
   );
 };

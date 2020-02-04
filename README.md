@@ -1,68 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Need Your Mask
 
-## Available Scripts
+연일 코로나 바이러스가 기승을 부리고 마스크가 품귀현상을 빚고 있는데 뉴스에서는 연일 마스크 매점매석 마스크 폭리 등 관련 뉴스가 하루가 멀다하고 나오고 있어 좀더 편하게 마스크 판매자료를 구할 길이 없을까 고민하다 만들었습니다.
 
-In the project directory, you can run:
+## 지원하는 기능
 
-### `npm start`
+여러 쇼핑몰의 마스크 판매를 한곳에 비교해서 볼 수 있도록 정리하였습니다. 또한 가격 조건을 설정할 수 있도록 하여 지나치게 비싼 마스크 판매처를 한 번에 찾을 수 있도록 했습니다.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 지원하는 쇼핑몰
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+현재는 네이버 쇼핑과 11번가만 지원하고 있습니다. 다른 쇼핑몰의 경우 최대한 빨리 지원할 수 있도록 하겠습니다.
 
-### `npm test`
+## 업데이트 내역.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+2/4 1.0v 런칭.

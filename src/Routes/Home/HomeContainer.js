@@ -22,7 +22,6 @@ export default class extends React.Component {
       return newState;
     });
   };
-  handleSubmit = event => {};
   componentDidMount() {
     this.getElevenShop();
   }
@@ -112,7 +111,6 @@ export default class extends React.Component {
         loading={loading}
         error={error}
         handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
       />
     );
   }

@@ -19,32 +19,30 @@ const Image = styled.img`
 `;
 
 const Product = styled.span`
-  color: rgba(255, 255, 255, 0.8);
   display: block;
   margin-bottom: 7px;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-size: 12px;
+  font-size: 14px;
 `;
 
 const Seller = styled.span`
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
 `;
 
 const Price = styled.span`
-  color: rgba(255, 255, 255, 0.8);
   display: block;
   margin-bottom: 7px;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-size: 12px;
+  font-size: 14px;
 `;
 
 const Item = ({ url, img, product, seller, price }) => (
   <Container onClick={() => {window.open(url, '_newtab')}}>
     <Image src={img}/>
-    <Product>{product.length > 18 ? `${product.substring(0, 18)}...` : product}</Product>
+    <Product>{product.length > 14 ? `${product.substring(0, 14)}...` : product}</Product>
     <Seller>{seller}</Seller>
     <Price>{price}원</Price>
   </Container>
