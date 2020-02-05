@@ -42,7 +42,7 @@ const Price = styled.span`
 const Item = ({ url, img, product, seller, price }) => (
   <Container onClick={() => {window.open(url, '_newtab')}}>
     <Image src={img}/>
-    <Product>{product.length > 14 ? `${product.substring(0, 14)}...` : product}</Product>
+    <Product>{product.length > 14 ? `${product.replace(/<\/?[a-z]>/gi, "").substring(0, 14)}...` : product.replace(/<\/?[a-z]>/gi, "")}</Product>
     <Seller>{seller}</Seller>
     <Price>{price}원</Price>
   </Container>
