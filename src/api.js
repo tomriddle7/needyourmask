@@ -12,3 +12,5 @@ export const searchNaver = () => api.get(`https://cors-anywhere.herokuapp.com/ht
 });
 
 export const searchEleven = () => api.get(`https://cors-anywhere.herokuapp.com/http://openapi.11st.co.kr/openapi/OpenApiService.tmall?apiCode=ProductSearch&key=d02ab1e21267f20b591ee64a1758b398&keyword=${mask}&expCnt=1`);
+
+export const searchGmarcket = () => api.get(`https://spreadsheets.google.com/feeds/list/1iJlUDkWEOF4537bo03u1EVKJY7gduCnDp9EZ9ODxOlA/okdaoy5/public/values?alt=json`);

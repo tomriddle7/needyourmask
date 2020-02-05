@@ -1,10 +1,11 @@
 import React from "react";
 import HomePresenter from "./HomePresenter";
-import { searchEleven, searchNaver } from "../../api";
+import { searchGmarcket, searchEleven, searchNaver } from "../../api";
 import { parseString } from "xml2js";
 
 export default class extends React.Component {
   state = {
+    shopGmarcketData: null,
     shopElevenData: null,
     shopNaverData: null,
     shopData: null,
@@ -23,8 +24,30 @@ export default class extends React.Component {
     });
   };
   componentDidMount() {
-    this.getElevenShop();
-  }
+    this.getGmarcketShop();
+  };
+  getGmarcketShop = async () => {
+    try {
+      const {
+        data: { feed: { entry: shopGmarcketData } }
+      } = await searchGmarcket();
+      console.log(gmarcketMap);
+      const gmarcketMap = shopGmarcketData.map(item => {
+        return JSON.parse(item.gsx$_cokwr.$t);
+      });
+      this.setState({
+        shopGmarcketData: gmarcketMap
+      });
+      
+    } catch (e) {
+      this.setState({
+        error: "Can't find app information."
+      });
+    } finally {
+      
+      this.getElevenShop();
+    }
+  };
   getElevenShop = async () => {
     try {
       const { data: shopElevenData } = await searchEleven();
