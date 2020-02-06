@@ -24,7 +24,7 @@ export default class extends React.Component {
     });
   };
   componentDidMount() {
-    this.getElevenShop();
+    this.getGmarcketShop();
   };
   getGmarcketShop = async () => {
     try {
@@ -32,18 +32,16 @@ export default class extends React.Component {
         data: { feed: { entry: shopGmarcketData } }
       } = await searchGmarcket();
       const gmarcketMap = shopGmarcketData.map(item => {
-        return item.gsx$_cokwr.$t;
+        return JSON.parse(JSON.stringify(item.gsx$_cokwr.$t));
       });
       this.setState({
         shopGmarcketData: gmarcketMap
       });
-      
     } catch (e) {
       this.setState({
         error: "Can't find app information."
       });
     } finally {
-      
       this.getElevenShop();
     }
   };
