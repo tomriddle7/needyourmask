@@ -24,16 +24,15 @@ export default class extends React.Component {
     });
   };
   componentDidMount() {
-    this.getGmarcketShop();
+    this.getElevenShop();
   };
   getGmarcketShop = async () => {
     try {
       const {
         data: { feed: { entry: shopGmarcketData } }
       } = await searchGmarcket();
-      console.log(gmarcketMap);
       const gmarcketMap = shopGmarcketData.map(item => {
-        return JSON.parse(item.gsx$_cokwr.$t);
+        return item.gsx$_cokwr.$t;
       });
       this.setState({
         shopGmarcketData: gmarcketMap
