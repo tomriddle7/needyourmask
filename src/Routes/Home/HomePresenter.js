@@ -63,7 +63,7 @@ const HomePresenter = ({
         />
       </Form>
       <Section>
-        {shopNaverData.map(shop =>
+        {shopNaverData && shopNaverData.length > 0 && shopNaverData.map(shop =>
           Number(shop.price) >= minPrice && Number(shop.price) <= maxPrice ? (
             <Item
               key={shop.id}
@@ -77,7 +77,7 @@ const HomePresenter = ({
             <></>
           )
         )}
-        {shopElevenData.map(shop =>
+        {shopElevenData && shopElevenData.length > 0 && shopElevenData.map(shop =>
         Number(shop.ProductPrice[0]) >= minPrice &&
         Number(shop.ProductPrice[0]) <= maxPrice ? (
           <Item
