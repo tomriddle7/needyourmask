@@ -1,6 +1,9 @@
 {
   "name": "needyourmask",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.14.1"
+  },
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
