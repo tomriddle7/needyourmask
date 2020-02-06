@@ -1,0 +1,14 @@
+[[redirects]]
+  from = "/v1"
+  to = "https://openapi.naver.com"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+  headers = {X-From = "Netlify"}
+  signed = "API_SIGNATURE_TOKEN"
+
+  from = "/openapi"
+  to = "http://openapi.11st.co.kr"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+  headers = {X-From = "Netlify"}
+  signed = "API_SIGNATURE_TOKEN"
