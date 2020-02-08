@@ -32,7 +32,16 @@ export default class extends React.Component {
         data: { feed: { entry: shopGmarcketData } }
       } = await searchGmarcket();
       const gmarcketMap = shopGmarcketData.map(item => {
-        return JSON.parse(JSON.stringify(item.gsx$_cokwr.$t));
+        let data = {};
+        let jsonString = JSON.stringify(item);
+        let tbString = JSON.parse(jsonString);
+        data.id = tbString.gsx$productid.$t;
+        data.product = tbString.gsx$product.$t;
+        data.img = tbString.gsx$img.$t;
+        data.url = tbString.gsx$url.$t;
+        data.seller = tbString.gsx$seller.$t;
+        data.price = tbString.gsx$price.$t.replace(",", "");
+        return data;
       });
       this.setState({
         shopGmarcketData: gmarcketMap
@@ -113,6 +122,7 @@ export default class extends React.Component {
   };
   render() {
     const {
+      shopGmarcketData,
       shopElevenData,
       shopNaverData,
       shopData,
@@ -123,6 +133,7 @@ export default class extends React.Component {
     } = this.state;
     return (
       <HomePresenter
+        shopGmarcketData={shopGmarcketData}
         shopElevenData={shopElevenData}
         shopNaverData={shopNaverData}
         shopData={shopData}

@@ -27,6 +27,7 @@ const Input = styled.input``;
 const Submit = styled.input``;
 
 const HomePresenter = ({
+  shopGmarcketData,
   shopElevenData,
   shopNaverData,
   minPrice,
@@ -63,6 +64,20 @@ const HomePresenter = ({
         />
       </Form>
       <Section>
+        {shopGmarcketData && shopGmarcketData.length > 0 && shopGmarcketData.map(shop =>
+          Number(shop.price) >= minPrice && Number(shop.price) <= maxPrice ? (
+            <Item
+              key={shop.id}
+              url={shop.url}
+              img={shop.img}
+              product={shop.product}
+              seller={shop.seller}
+              price={shop.price}
+            />
+          ) : (
+            <></>
+          )
+        )}
         {shopNaverData && shopNaverData.length > 0 && shopNaverData.map(shop =>
           Number(shop.price) >= minPrice && Number(shop.price) <= maxPrice ? (
             <Item
