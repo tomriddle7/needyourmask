@@ -30,6 +30,7 @@
     "heroku-postbuild": "cd client && yarn install && yarn build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:development": "env-cmd -f .env.development react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
