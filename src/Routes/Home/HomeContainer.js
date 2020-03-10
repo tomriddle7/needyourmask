@@ -1,12 +1,14 @@
 import React from "react";
 import HomePresenter from "./HomePresenter";
-import { searchGmarcket, searchEleven, searchNaver } from "../../api";
+import { searchGmarcket, searchEleven, searchTmon, searchWemakeprice, searchNaver } from "../../api";
 import { parseString } from "xml2js";
 
 export default class extends React.Component {
   state = {
     shopGmarcketData: null,
     shopElevenData: null,
+    shopTmonData: null,
+    shopWemakepriceData: null,
     shopNaverData: null,
     shopData: null,
     minPrice: 0,
@@ -84,6 +86,64 @@ export default class extends React.Component {
         error: "Can't find app information."
       });
     } finally {
+      this.getTmonShop();
+    }
+  };
+  getTmonShop = async () => {
+    try {
+      const {
+        data: { data: shopTmonData }
+      } = await searchTmon();
+      const tmonMap = shopTmonData.searchDeals.map(item => {
+        item.id = item.searchDealResponse.searchInfo.id;
+        delete item.searchDealResponse.searchInfo.id;
+        item.product = item.searchDealResponse.dealInfo.titleName;
+        delete item.searchDealResponse.dealInfo.titleName;
+        item.img = item.searchDealResponse.dealInfo.imageInfo.pc3ColImageUrl;
+        delete item.searchDealResponse.dealInfo.imageInfo.pc3ColImageUrl;
+        item.url = item.extraDealInfo.detailUrl;
+        delete item.extraDealInfo.detailUrl;
+        item.seller = "티몬";
+        item.price = item.searchDealResponse.dealInfo.priceInfo.price;
+        delete item.searchDealResponse.dealInfo.priceInfo.price;
+        return item;
+      });
+      this.setState({
+        shopTmonData: tmonMap
+      });
+    } catch (e) {
+      this.setState({
+        error: "Can't find app information."
+      });
+    } finally {
+      this.getWemakepriceShop();
+    }
+  };
+  getWemakepriceShop = async () => {
+    try {
+      const {
+        data: { data: shopWemakePriceData }
+      } = await searchWemakeprice();
+      const wemakepriceMap = shopWemakePriceData.data.map(item => {
+        item.id = item.price;
+        item.product = item.title;
+        delete item.title;
+        item.img = item.imageUrl;
+        delete item.imageUrl;
+        item.url = item.link;
+        delete item.link;
+        item.seller = item.vender;
+        delete item.vender;
+        return item;
+      });
+      this.setState({
+        shopWemakepriceData: wemakepriceMap
+      });
+    } catch (e) {
+      this.setState({
+        error: "Can't find app information."
+      });
+    } finally {
       this.getNaverShop();
     }
   };
@@ -124,6 +184,8 @@ export default class extends React.Component {
     const {
       shopGmarcketData,
       shopElevenData,
+      shopTmonData,
+      shopWemakepriceData,
       shopNaverData,
       shopData,
       minPrice,
@@ -135,6 +197,8 @@ export default class extends React.Component {
       <HomePresenter
         shopGmarcketData={shopGmarcketData}
         shopElevenData={shopElevenData}
+        shopTmonData={shopTmonData}
+        shopWemakepriceData={shopWemakepriceData}
         shopNaverData={shopNaverData}
         shopData={shopData}
         minPrice={minPrice}

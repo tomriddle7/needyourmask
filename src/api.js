@@ -18,3 +18,7 @@ export const searchNaver = () => api.get(`https://cors-anywhere.herokuapp.com/ht
 export const searchEleven = () => api.get(`https://cors-anywhere.herokuapp.com/http://openapi.11st.co.kr/openapi/OpenApiService.tmall?apiCode=ProductSearch&key=${elevenAPI}&keyword=${mask}&expCnt=1`);
 
 export const searchGmarcket = () => api.get(`https://spreadsheets.google.com/feeds/list/${googleSheet}/owvh37h/public/values?alt=json`);
+
+export const searchWemakeprice = () => api.get(`https://cors-anywhere.herokuapp.com/https://search.wemakeprice.com/api/extservice/getWonderShopping.json?keyword=${mask}`);
+
+export const searchTmon = () => api.get(`https://cors-anywhere.herokuapp.com/https://search.tmon.co.kr/api/search/v4/deals?_=1583821011867&keyword=${mask}&useTypoCorrection=true&mainDealOnly=true&page=1&sortType=POPULAR`);
